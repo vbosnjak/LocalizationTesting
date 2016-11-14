@@ -12,24 +12,74 @@
     tools:context="hr.altagama.localizationtesting.MainActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/linearLayout2">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Price 1"
+            android:layout_width="wrap_content" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(NOT set)"
+            android:inputType="numberDecimal"
+            android:id="@+id/editText"
+            android:gravity="center"
+            android:layout_weight="50" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:id="@+id/linearLayout">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Price 1" />
+            android:gravity="center_vertical"
+            android:text="Price 2" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(NOT set)"
+            android:inputType="numberDecimal"
+            android:id="@+id/editText2"
+            android:gravity="center"
+            android:layout_weight="50" />
 
     </LinearLayout>
 
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="(NOT set)"
-        android:inputType="numberDecimal"
+        android:id="@+id/linearLayout3"
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/editText" />
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Price 3" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="(NOT set)"
+            android:inputType="numberDecimal"
+            android:id="@+id/editText3"
+            android:gravity="center"
+            android:layout_weight="50" />
+
+    </LinearLayout>
 </RelativeLayout>
