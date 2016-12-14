@@ -19,11 +19,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showLocale() {
-        add("Headline1",
-                "Locale.getDefault",
+        addHeadline("Localizations")
+        addLine("Locale.getDefault",
                 Locale.getDefault().displayName)
-        add("Headline2",
-                "resources.configuration.locale",
+        addLine("resources.configuration.locale",
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                     resources.configuration.locales[0].displayName
                 else
@@ -31,31 +30,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showDates() {
-        add("Headline3",
-                "android.text.format.DateFormat.getDateFormat()",
+        addHeadline("Dates")
+        addLine("android.text.format.DateFormat.getDateFormat()",
                 DateFormat.getDateFormat(this).format(Date()))
-        add("Headline4",
-                "android.text.format.DateFormat.getMediumDateFormat()",
+        addLine("android.text.format.DateFormat.getMediumDateFormat()",
                 DateFormat.getMediumDateFormat(this).format(Date()))
-        add("Headline5",
-                "android.text.format.DateFormat.getLongDateFormat()",
+        addLine("android.text.format.DateFormat.getLongDateFormat()",
                 DateFormat.getLongDateFormat(this).format(Date()))
     }
 
     fun showNumbers() {
-        add("Headline6",
-                "String.format",
+        addHeadline("Numbers")
+        addLine("String.format",
                 String.format("%f", 1000000.1555))
-        add("Headline7",
-                "DecimalFormat.getInstance().format",
+        addLine("DecimalFormat.getInstance().format",
                 DecimalFormat.getInstance().format(1000000.1555))
-        add("Headline8",
-                "DecimalFormat.getCurrencyInstance().format",
+        addLine("DecimalFormat.getCurrencyInstance().format",
                 DecimalFormat.getCurrencyInstance().format(1000000.1555))
     }
 
-    fun add(headline: String, description: String, text: String) {
-        mainList.addView(getHeadline(headline))
+    fun addLine(description: String, text: String) {
         mainList.addView(getView(description, text))
     }
 
@@ -64,6 +58,10 @@ class MainActivity : AppCompatActivity() {
         v.setDescription(description)
         v.setText(text)
         return v
+    }
+
+    fun addHeadline(headln: String) {
+        mainList.addView(getHeadline(headln))
     }
 
     fun getHeadline(headln: String): HeadlineView {
