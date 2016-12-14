@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.text.format.DateFormat
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         showLocale()
         showDates()
         showNumbers()
+        showSeparator()
     }
 
     fun showLocale() {
@@ -37,6 +39,8 @@ class MainActivity : AppCompatActivity() {
                 DateFormat.getMediumDateFormat(this).format(Date()))
         addLine("android.text.format.DateFormat.getLongDateFormat()",
                 DateFormat.getLongDateFormat(this).format(Date()))
+        addLine("android.text.format.DateFormat.getTimeFormat()",
+                DateFormat.getTimeFormat(this).format(Date()))
     }
 
     fun showNumbers() {
@@ -48,6 +52,17 @@ class MainActivity : AppCompatActivity() {
         addLine("DecimalFormat.getCurrencyInstance().format",
                 DecimalFormat.getCurrencyInstance().format(1000000.1555))
     }
+
+    fun showSeparator() {
+        addHeadline("Separators")
+        addLine("DecimalFormatSymbols.decimalSeparator",
+                DecimalFormatSymbols().decimalSeparator.toString())
+        addLine("DecimalFormatSymbol ThousandSeparator",
+                DecimalFormatSymbols().groupingSeparator.toString())
+        addLine("DecimalFormatSymbol.Currency",
+                DecimalFormatSymbols().currencySymbol)
+    }
+
 
     fun addLine(description: String, text: String) {
         mainList.addView(getView(description, text))
