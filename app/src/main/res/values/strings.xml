@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LocalizationTesting</string>
+    <string name="localization_name">Default localization</string>
 </resources>
